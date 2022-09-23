@@ -1,8 +1,10 @@
 #include <driver/adc.h>
+int cnt=0;
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
+  pinMode(LED_BUILTIN, OUTPUT);
   adc1_config_width(ADC_WIDTH_BIT_12);
 }
 
@@ -30,5 +32,9 @@ void loop() {
   // put your main code here, to run repeatedly:
   Lux_calc();
   Temp_calc();
-  delay(500);
+  if ( lux > 50)
+    {
+      digitalWrite(LED_BUILTIN, HIGH);
+    }
+    else digitalWrite(LED_BUILTIN,LOW);  delay(500);
 }
