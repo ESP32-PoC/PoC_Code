@@ -101,7 +101,7 @@ void send_email(int value){
     message.addRecipient("Alan", RECIPIENT_EMAIL);
   
     /*Send HTML message*/
-    String htmlMsg = "<div style=\"color:#2f4468;\"><h1>T'es mauvais!</h1><p>- Sent from ESP board</p></div>";
+    String htmlMsg = "<div style=\"color:#2f4468;\"><h1>Le frigo est ouvert depuis plus de 30s!</h1><p>- Sent from ESP board</p></div>";
     message.html.content = htmlMsg.c_str();
     message.html.content = htmlMsg.c_str();
     message.text.charSet = "us-ascii";
@@ -159,7 +159,7 @@ void send_email(int value){
     message.addRecipient("Alan", RECIPIENT_EMAIL);
   
     /*Send HTML message*/
-    String htmlMsg = "<div style=\"color:#2f4468;\"><h1>La température est trop élevé !</h1><p>- Sent from ESP board</p></div>";
+    String htmlMsg = "<div style=\"color:#2f4468;\"><h1>La température interne est trop élevée !</h1><p>- Sent from ESP board</p></div>";
     message.html.content = htmlMsg.c_str();
     message.html.content = htmlMsg.c_str();
     message.text.charSet = "us-ascii";
