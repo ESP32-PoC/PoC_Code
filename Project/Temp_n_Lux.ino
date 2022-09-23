@@ -32,9 +32,10 @@ void loop() {
   // put your main code here, to run repeatedly:
   Lux_calc();
   Temp_calc();
+  delay(1000);
   if ( lux > 50)
     {
       digitalWrite(LED_BUILTIN, HIGH);
     }
-    else digitalWrite(LED_BUILTIN,LOW);  delay(500);
+    else digitalWrite(LED_BUILTIN,LOW);
 }
