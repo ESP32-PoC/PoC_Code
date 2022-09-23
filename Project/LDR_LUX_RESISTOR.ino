@@ -15,7 +15,7 @@ void loop() {
     float voltage = (float)value*3900./4095.;
     // Print the vaoltage in millivolts (0-3.9V)
     float res=((5000*10000)/(voltage))-10000;
-    float lux=500/res;
+    float lux=500000/res;
     Serial.println("Millivolts: " + String(voltage));
     Serial.println("Resistance: " + String(res));
     Serial.println("Lux: "+ String(lux));
