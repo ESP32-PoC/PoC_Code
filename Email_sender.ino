@@ -19,22 +19,24 @@
 #endif
 #include <ESP_Mail_Client.h>
 
-#define WIFI_SSID "YOUR_SSID"
-#define WIFI_PASSWORD "YOUR_PASSWORD"
+#define WIFI_SSID "Test"
+#define WIFI_PASSWORD "comores9977"
 
 #define SMTP_HOST "smtp.gmail.com"
 #define SMTP_PORT 465
 
 /* The sign in credentials */
-#define AUTHOR_EMAIL "SENDER_EMAIL_ADDRESS"
-#define AUTHOR_PASSWORD "generated_app_key"
+#define AUTHOR_EMAIL "alanabdou46@gmail.com"
+#define AUTHOR_PASSWORD "bctlotowuuibsstb"
 
 /* Recipient's email*/
-#define RECIPIENT_EMAIL "RECEIVER_EMAIL_ADDRESS"
+#define RECIPIENT_EMAIL "alanabdou34@gmail.com"
 
 /* The SMTP Session object used for Email sending */
 SMTPSession smtp;
+int value = 0;
 
+void send_email(int value);
 /* Callback function to get the Email sending status */
 void smtpCallback(SMTP_Status status);
 
@@ -53,65 +55,137 @@ void setup(){
   Serial.println(WiFi.localIP());
   Serial.println();
 
-  /** Enable the debug via Serial port
-   * none debug or 0
-   * basic debug or 1
-  */
-  smtp.debug(1);
-
-  /* Set the callback function to get the sending results */
-  smtp.callback(smtpCallback);
-
-  /* Declare the session config data */
-  ESP_Mail_Session session;
-
-  /* Set the session config */
-  session.server.host_name = SMTP_HOST;
-  session.server.port = SMTP_PORT;
-  session.login.email = AUTHOR_EMAIL;
-  session.login.password = AUTHOR_PASSWORD;
-  session.login.user_domain = "";
-
-  /* Declare the message class */
-  SMTP_Message message;
-
-  /* Set the message headers */
-  message.sender.name = "ESP";
-  message.sender.email = AUTHOR_EMAIL;
-  message.subject = "ESP Test Email";
-  message.addRecipient("Alan", RECIPIENT_EMAIL);
-
-  /*Send HTML message*/
-  String htmlMsg = "<div style=\"color:#2f4468;\"><h1>Hello World!</h1><p>- Sent from ESP board</p></div>";
-  message.html.content = htmlMsg.c_str();
-  message.html.content = htmlMsg.c_str();
-  message.text.charSet = "us-ascii";
-  message.html.transfer_encoding = Content_Transfer_Encoding::enc_7bit;
-
-  /*
-  //Send raw text message
-  String textMsg = "Hello World! - Sent from ESP board";
-  message.text.content = textMsg.c_str();
-  message.text.charSet = "us-ascii";
-  message.text.transfer_encoding = Content_Transfer_Encoding::enc_7bit;
-  
-  message.priority = esp_mail_smtp_priority::esp_mail_smtp_priority_low;
-  message.response.notify = esp_mail_smtp_notify_success | esp_mail_smtp_notify_failure | esp_mail_smtp_notify_delay;*/
-
-  /* Set the custom message header */
-  //message.addHeader("Message-ID: <test>");
-
-  /* Connect to server with the session config */
-  if (!smtp.connect(&session))
-    return;
-
-  /* Start sending Email and close the session */
-  if (!MailClient.sendMail(&smtp, &message))
-    Serial.println("Error sending Email, " + smtp.errorReason());
+ /* value = 1;
+  send_email(value);
+  Serial.println("Email 1 sent");
+  delay(5000);
+  value = 2;
+  send_email(value);
+  Serial.println("Email 2 sent");*/
 }
 
 void loop(){
 
+}
+
+
+void send_email(int value){
+  if(value == 1){
+    
+    /** Enable the debug via Serial port
+     * none debug or 0
+     * basic debug or 1
+    */
+    smtp.debug(1);
+  
+    /* Set the callback function to get the sending results */
+    smtp.callback(smtpCallback);
+  
+    /* Declare the session config data */
+    ESP_Mail_Session session;
+  
+    /* Set the session config */
+    session.server.host_name = SMTP_HOST;
+    session.server.port = SMTP_PORT;
+    session.login.email = AUTHOR_EMAIL;
+    session.login.password = AUTHOR_PASSWORD;
+    session.login.user_domain = "";
+  
+    /* Declare the message class */
+    SMTP_Message message;
+  
+    /* Set the message headers */
+    message.sender.name = "ESP";
+    message.sender.email = AUTHOR_EMAIL;
+    message.subject = "ESP Test Email";
+    message.addRecipient("Alan", RECIPIENT_EMAIL);
+  
+    /*Send HTML message*/
+    String htmlMsg = "<div style=\"color:#2f4468;\"><h1>T'es mauvais!</h1><p>- Sent from ESP board</p></div>";
+    message.html.content = htmlMsg.c_str();
+    message.html.content = htmlMsg.c_str();
+    message.text.charSet = "us-ascii";
+    message.html.transfer_encoding = Content_Transfer_Encoding::enc_7bit;
+  
+    /*
+    //Send raw text message
+    String textMsg = "Hello World! - Sent from ESP board";
+    message.text.content = textMsg.c_str();
+    message.text.charSet = "us-ascii";
+    message.text.transfer_encoding = Content_Transfer_Encoding::enc_7bit;
+    
+    message.priority = esp_mail_smtp_priority::esp_mail_smtp_priority_low;
+    message.response.notify = esp_mail_smtp_notify_success | esp_mail_smtp_notify_failure | esp_mail_smtp_notify_delay;*/
+  
+    /* Set the custom message header */
+    //message.addHeader("Message-ID: <test>");
+  
+    /* Connect to server with the session config */
+    if (!smtp.connect(&session))
+      return;
+  
+    /* Start sending Email and close the session */
+    if (!MailClient.sendMail(&smtp, &message))
+      Serial.println("Error sending Email, " + smtp.errorReason());
+  }
+  if(value == 2){
+      
+    /** Enable the debug via Serial port
+     * none debug or 0
+     * basic debug or 1
+    */
+    smtp.debug(1);
+  
+    /* Set the callback function to get the sending results */
+    smtp.callback(smtpCallback);
+  
+    /* Declare the session config data */
+    ESP_Mail_Session session;
+  
+    /* Set the session config */
+    session.server.host_name = SMTP_HOST;
+    session.server.port = SMTP_PORT;
+    session.login.email = AUTHOR_EMAIL;
+    session.login.password = AUTHOR_PASSWORD;
+    session.login.user_domain = "";
+  
+    /* Declare the message class */
+    SMTP_Message message;
+  
+    /* Set the message headers */
+    message.sender.name = "ESP";
+    message.sender.email = AUTHOR_EMAIL;
+    message.subject = "ESP Test Email";
+    message.addRecipient("Alan", RECIPIENT_EMAIL);
+  
+    /*Send HTML message*/
+    String htmlMsg = "<div style=\"color:#2f4468;\"><h1>La température est trop élevé !</h1><p>- Sent from ESP board</p></div>";
+    message.html.content = htmlMsg.c_str();
+    message.html.content = htmlMsg.c_str();
+    message.text.charSet = "us-ascii";
+    message.html.transfer_encoding = Content_Transfer_Encoding::enc_7bit;
+  
+    /*
+    //Send raw text message
+    String textMsg = "Hello World! - Sent from ESP board";
+    message.text.content = textMsg.c_str();
+    message.text.charSet = "us-ascii";
+    message.text.transfer_encoding = Content_Transfer_Encoding::enc_7bit;
+    
+    message.priority = esp_mail_smtp_priority::esp_mail_smtp_priority_low;
+    message.response.notify = esp_mail_smtp_notify_success | esp_mail_smtp_notify_failure | esp_mail_smtp_notify_delay;*/
+  
+    /* Set the custom message header */
+    //message.addHeader("Message-ID: <test>");
+  
+    /* Connect to server with the session config */
+    if (!smtp.connect(&session))
+      return;
+  
+    /* Start sending Email and close the session */
+    if (!MailClient.sendMail(&smtp, &message))
+      Serial.println("Error sending Email, " + smtp.errorReason());
+  }
 }
 
 /* Callback function to get the Email sending status */
