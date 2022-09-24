@@ -109,6 +109,11 @@ void loop() {
   float lux = Lux_calc();
   float temp = Temp_calc();
   delay(500);
+  if (temp >= 21)
+  {
+    setup_Wifi();
+    send_email(2);
+  }
   if ( lux > 50)
     {
       if( cnt >= 6 && verif == 0)
