@@ -26,11 +26,11 @@
 #define SMTP_PORT 465
 
 /* The sign in credentials */
-#define AUTHOR_EMAIL "alanabdou46@gmail.com"
-#define AUTHOR_PASSWORD "bctlotowuuibsstb"
+#define AUTHOR_EMAIL "XXXX@gmail.com"
+#define AUTHOR_PASSWORD "key_app_generated"
 
 /* Recipient's email*/
-#define RECIPIENT_EMAIL "alanabdou34@gmail.com"
+#define RECIPIENT_EMAIL "XXX@gmail.com"
 
 /* The SMTP Session object used for Email sending */
 SMTPSession smtp;
