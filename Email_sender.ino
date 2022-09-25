@@ -19,8 +19,8 @@
 #endif
 #include <ESP_Mail_Client.h>
 
-#define WIFI_SSID "Test"
-#define WIFI_PASSWORD "comores9977"
+#define WIFI_SSID "YOUR SSID"
+#define WIFI_PASSWORD "YOUR_PASSWORD"
 
 #define SMTP_HOST "smtp.gmail.com"
 #define SMTP_PORT 465
