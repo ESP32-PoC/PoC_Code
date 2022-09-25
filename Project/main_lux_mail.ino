@@ -25,18 +25,18 @@
 #define TEMP_CHANNEL ADC1_CHANNEL_0
 #define TEMP_ATT ADC_ATTEN_DB_0
 
-#define WIFI_SSID "Test"
-#define WIFI_PASSWORD "comores9977"
+#define WIFI_SSID "YOUR_SSID"
+#define WIFI_PASSWORD "YOUR_PASSWORD"
 
 #define SMTP_HOST "smtp.gmail.com"
 #define SMTP_PORT 465
 
 /* The sign in credentials */
-#define AUTHOR_EMAIL "alanabdou46@gmail.com"
-#define AUTHOR_PASSWORD "bctlotowuuibsstb"
+#define AUTHOR_EMAIL "XXXX@gmail.com"
+#define AUTHOR_PASSWORD "key_app_generated"
 
 /* Recipient's email*/
-#define RECIPIENT_EMAIL "alanabdou46@gmail.com"
+#define RECIPIENT_EMAIL "XXXX@gmail.com"
 
 /* The SMTP Session object used for Email sending */
 SMTPSession smtp;
