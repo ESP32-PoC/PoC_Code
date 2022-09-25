@@ -25,18 +25,18 @@
 #define TEMP_CHANNEL ADC1_CHANNEL_0
 #define TEMP_ATT ADC_ATTEN_DB_0
 
-#define WIFI_SSID "YOUR_SSID"
-#define WIFI_PASSWORD "YOUR_PASSWORD"
+#define WIFI_SSID "Test"
+#define WIFI_PASSWORD "comores9977"
 
 #define SMTP_HOST "smtp.gmail.com"
 #define SMTP_PORT 465
 
 /* The sign in credentials */
-#define AUTHOR_EMAIL "XXXX@gmail.com"
-#define AUTHOR_PASSWORD "key_app_generated"
+#define AUTHOR_EMAIL "alanabdou46@gmail.com"
+#define AUTHOR_PASSWORD "bctlotowuuibsstb"
 
 /* Recipient's email*/
-#define RECIPIENT_EMAIL "XXXX@gmail.com"
+#define RECIPIENT_EMAIL "alanabdou46@gmail.com"
 
 /* The SMTP Session object used for Email sending */
 SMTPSession smtp;
@@ -67,8 +67,8 @@ void setup() {
 
 float Lux_calc(){
   //Read the voltage on ADC1, Channel 3 (GPIO 36)
-  adc1_config_channel_atten(LUX_CHANNEL,ADC_ATTEN_DB_11);
-  int value = adc1_get_raw(ADC1_CHANNEL_3);
+  adc1_config_channel_atten(LUX_CHANNEL,LUX_ATT);
+  int value = adc1_get_raw(LUX_CHANNEL);
   float voltage = (float)value*3900./4095.;
   float res=((5000*10000)/(voltage))-10000;
   float lux=500000/res;
@@ -78,8 +78,8 @@ float Lux_calc(){
 
 float Temp_calc(){
   
-  adc1_config_channel_atten(ADC1_CHANNEL_0,ADC_ATTEN_DB_0);
-  int val = adc1_get_raw(ADC1_CHANNEL_0);
+  adc1_config_channel_atten(TEMP_CHANNEL,TEMP_ATT);
+  int val = adc1_get_raw(TEMP_CHANNEL);
   float voltage2 = (float)val*1100./4095.;
   float temp = voltage2/10;
   Serial.println("Température: "+ String(temp));
@@ -113,6 +113,7 @@ void loop() {
   {
     setup_Wifi();
     send_email(2);
+    WiFi.disconnect();
   }
   if ( lux > 50)
     {
@@ -122,6 +123,7 @@ void loop() {
         test_value = 1;
         setup_Wifi();
         send_email(1);
+        WiFi.disconnect();
         verif = 1;
       }
       cnt++;
@@ -284,5 +286,4 @@ void smtpCallback(SMTP_Status status){
     }
     Serial.println("----------------\n");
   }
-  WiFi.end();
 }
