@@ -17,15 +17,15 @@ You have to change in the head of the file the following :
 
 ![image](https://user-images.githubusercontent.com/74834074/192166466-f56ee485-a949-4d3f-ade5-049624c75f9f.png)
               
-              remplace by your own
+remplace by your own
               
 ![image](https://user-images.githubusercontent.com/74834074/192166486-e7854db4-569f-4156-be59-3f92b8c37206.png)
               
-              remplace by your own
+remplace by your own
 however you have to configure first your gmail account to get the key you can see below ↑
 this tutorial can come in handy → https://randomnerdtutorials.com/esp32-send-email-smtp-server-arduino-ide/ ☺
 
 ![image](https://user-images.githubusercontent.com/74834074/192166607-464e4a0a-b47c-47cb-aa1b-aea94541f372.png)
               
-              change this to the recipient email
+change this to the recipient email
 (you don't have to configure anything here just change it to the good one)
