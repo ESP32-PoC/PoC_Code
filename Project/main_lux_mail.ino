@@ -284,4 +284,5 @@ void smtpCallback(SMTP_Status status){
     }
     Serial.println("----------------\n");
   }
+  WiFi.end();
 }
